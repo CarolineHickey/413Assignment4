@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Top 5 Restaurants in Provo";
+}
+
+@model IEnumerable<string>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> </title>
+    <meta name="viewport" content="width-device-width" />
+</head>
+<body>
+    <h4 class="bg-primary text-white text-center">Here are my personal favorites:</h4>
+    <div class="list-group text-center">
+        <ul>
+            @foreach (string i in Model)
+            {
+                <li class="list-group-item">
+                    @i
+                </li>
+            }
+        </ul>
+    </div>
+    <br />
+    <div class="text-center">
+        <a class="btn btn-primary" asp-action="Index">Go Back Home</a>
+    </div>
+    <br />
+    <br />
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Add Your Favorite Provo Restaurants:";
+}
+
+@model BestRestaurant.Models.ApplicationResponse
+<br />
+<form asp-action="AddRestaurant" method="post">
+    <div class="text-center">
+        <label asp-for="myName">Name:</label>
+
+        <input id="myName" asp-for="myName" />
+
+    </div>
+
+    <div class="text-center">
+        <label asp-for="myRestaurantName">RestaurantName:</label>
+
+        <input id="myRestaurantName" asp-for="myRestaurantName" />
+
+    </div>
+
+    <div class="text-center">
+        <label asp-for="myFavDish">FavDish:</label>
+
+        <input id="myFavDish" asp-for="myFavDish" />
+
+    </div>
+
+    <div class="text-center">
+
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator" ControlToValidate="TxtNo" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"></asp:RegularExpressionValidator>
+        <!-- ^([0-9]{3}[\-]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$-->
+        <label asp-for="myPhoneNumber">PhoneNumber:</label>
+
+        <input id="myPhoneNumber" asp-for="myPhoneNumber" />
+
+    </div>
+    <br />
+    <div class="text-center">
+        <input type="submit" value="Submit" id="submitbutton" class="btn btn-primary" />
+    </div>
+
+    <div asp-validation-summary="All" class="text-center"></div>
+</form>
+
+<br />
+<br />
