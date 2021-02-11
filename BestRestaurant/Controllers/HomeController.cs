@@ -20,7 +20,18 @@ namespace BestRestaurant.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<string> restaurantListHome = new List<string>();
+
+            foreach (Restaurant r in Restaurant.GetRestaurants())
+            {
+                string myDish = (r.FavDish == "" ^ r.FavDish is null) ? "It's all tasty" : r.FavDish;
+                //string? myDish = r.FavDish ?? "It's all tasty";
+
+                restaurantListHome.Add(string.Format("#{0}: {1}, {2}, {3}, {4}, {5}", r.RestaurantRanking, r.RestaurantName, myDish, r.PhoneNumber, r.Address, r.WebsiteLink));
+            }
+
+            return View(restaurantListHome);
+            //return View();
         }
 
         [HttpGet("List")]//This gives it kind of a URL... type in /List and this page will be rendered
