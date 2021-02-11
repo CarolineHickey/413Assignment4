@@ -22,6 +22,7 @@ namespace BestRestaurant.Models
         [Required]
         public string Address { get; set; }
 
+        [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 

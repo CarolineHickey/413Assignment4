@@ -30,7 +30,8 @@ namespace BestRestaurant.Controllers
 
             foreach (Restaurant r in Restaurant.GetRestaurants())
             {
-                string? myDish = r.FavDish ?? "It's all tasty";
+                string myDish = (r.FavDish == "" ^ r.FavDish is null) ? "It's all tasty" : r.FavDish;
+                //string? myDish = r.FavDish ?? "It's all tasty";
 
                 restaurantList.Add(string.Format("#{0}: {1}, {2}, {3}, {4}, {5}", r.RestaurantRanking, r.RestaurantName, myDish, r.PhoneNumber, r.Address, r.WebsiteLink));
             }
